@@ -27,13 +27,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <h1>User Details</h1>
-        <p>
-          {userData.map((user) => (
-            <p>
-              {user.first_name}
-            </p>
-          ))}
-        </p>
+
       </header>
     </div>
   );
