@@ -1,7 +1,6 @@
 import logo from "./logo.svg";
 import "./App.css";
 import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Link } from 'react-router-dom';
 
 function App() {
   const url = "https://reqres.in/api/users";
@@ -26,6 +25,12 @@ function App() {
     console.log(`Clicked on user with ID ${userId}`);
   };
 
+  const handleRowClick = (userId) => {
+    console.log(`Clicked on user with ID ${userId}`);
+
+    window.location.href = `/user-details.html?id=${userId}`;
+  };
+
   return (
     <div className="App">
       <header className="App-header">
@@ -38,18 +43,22 @@ function App() {
               <th></th>
               <th>First Name</th>
               <th>Last Name</th>
-              
             </tr>
           </thead>
           <tbody>
             {userData.map((user) => (
-              <tr key={user.id} onClick={() => handleItemClick(user.id)} style={{ cursor: 'pointer' }}>
+              <tr
+                key={user.id}
+                onClick={() => handleRowClick(user.id)}
+                style={{ cursor: "pointer" }}
+              >
                 <td>{user.id}</td>
                 <td>{user.email}</td>
-                <td><img src={user.avatar} class="avatar"></img></td>
+                <td>
+                  <img src={user.avatar} class="avatar"></img>
+                </td>
                 <td>{user.first_name}</td>
                 <td>{user.last_name}</td>
-                
               </tr>
             ))}
           </tbody>
