@@ -36,3 +36,20 @@
     transform: rotate(360deg);
   }
 } */
+
+
+.avatar{
+  border-radius: 50%;
+  width: 50px; /* Set the width to make it smaller */
+  height: 50px; /* Set the height to make it smaller */
+}
+
+.usertable {
+  
+  width: 80%;
+  text-align: center;
+}
+
+.usertable tr:hover {
+  background-color: #6bb9dd; /* Change the background color on hover */
+}
