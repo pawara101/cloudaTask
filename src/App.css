@@ -46,10 +46,17 @@
 
 .usertable {
   
-  width: 80%;
+  width: 100%;
   text-align: center;
 }
 
 .usertable tr:hover {
   background-color: #6bb9dd; /* Change the background color on hover */
+}
+
+#heading{
+  background-color: rgb(146, 178, 221);
+  padding: 20px;
+  font-weight: bold;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
