@@ -14,7 +14,43 @@
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root">
-      <h1>hello</h1>
+      <div id="userDetailsContainer"></div>
+      <script>
+        // Extract user ID from the URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const userId = urlParams.get('id');
+  
+        // Fetch additional details based on the user ID
+        // You can use this ID to make an API call or any other logic
+        console.log('User ID:', userId);
+  
+        // Example: Fetch user details from an API
+        // Replace this with your actual API endpoint and logic
+        fetch(`https://reqres.in/api/users/${userId}`)
+          .then((res) => res.json())
+          .then((data) => {
+            console.log('User Details:', data);
+
+            const userDetailsContainer = document.getElementById('userDetailsContainer');
+
+          // Create HTML content with user details
+          const userDetailsHTML = `
+            <p><strong>ID:</strong> ${data.data.id}</p>
+            <p><strong>Email:</strong> ${data.data.email}</p>
+            <p><strong>First Name:</strong> ${data.data.first_name}</p>
+            <p><strong>Last Name:</strong> ${data.data.last_name}</p>
+            <img src="${data.data.avatar}" alt="User Avatar">
+          `;
+
+          // Update the content of the userDetailsContainer
+          userDetailsContainer.innerHTML = userDetailsHTML;
+          })
+          .catch((error) => {
+            console.error('Error fetching user details:', error);
+          });
+      </script>
+
+      
     </div>
 
   </body>
