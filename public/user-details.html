@@ -3,29 +3,23 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    <meta
-      name="description"
-      content="Web site created using create-react-app"
-    />
-
-    <title>React App</title>
+    <title>User Details</title>
+    <link rel="stylesheet" href="user-details.css">
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
+    
     <div id="root">
       <div id="userDetailsContainer"></div>
       <script>
-        // Extract user ID from the URL
+
         const urlParams = new URLSearchParams(window.location.search);
         const userId = urlParams.get('id');
   
-        // Fetch additional details based on the user ID
-        // You can use this ID to make an API call or any other logic
+
         console.log('User ID:', userId);
   
-        // Example: Fetch user details from an API
-        // Replace this with your actual API endpoint and logic
+
         fetch(`https://reqres.in/api/users/${userId}`)
           .then((res) => res.json())
           .then((data) => {
@@ -33,13 +27,13 @@
 
             const userDetailsContainer = document.getElementById('userDetailsContainer');
 
-          // Create HTML content with user details
+          
           const userDetailsHTML = `
-            <p><strong>ID:</strong> ${data.data.id}</p>
-            <p><strong>Email:</strong> ${data.data.email}</p>
-            <p><strong>First Name:</strong> ${data.data.first_name}</p>
-            <p><strong>Last Name:</strong> ${data.data.last_name}</p>
-            <img src="${data.data.avatar}" alt="User Avatar">
+          <img class="avtr" src="${data.data.avatar}" alt="User Avatar">
+            <h3><strong>ID:</strong> ${data.data.id}</h3>
+            <h3><strong>Email:</strong> ${data.data.email}</h3>
+            <h3><strong>First Name:</strong> ${data.data.first_name}</h3>
+            <h3><strong>Last Name:</strong> ${data.data.last_name}</h3>
           `;
 
           // Update the content of the userDetailsContainer
