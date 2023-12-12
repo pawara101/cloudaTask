@@ -1,6 +1,8 @@
 import logo from "./logo.svg";
 import "./App.css";
 import React, { useState, useEffect } from "react";
+import { BrowserRouter as Router, Switch, Route, Link,Routes } from 'react-router-dom'; // Add BrowserRouter import
+import UserDetails from "./components/UserDetails"; 
 
 function App() {
   const url = "https://reqres.in/api/users";
@@ -20,11 +22,6 @@ function App() {
     fetchInfo();
   }, []);
 
-  const handleItemClick = (userId) => {
-    // Handle the click event, for example, navigate to a user details page
-    console.log(`Clicked on user with ID ${userId}`);
-  };
-
   const handleRowClick = (userId) => {
     console.log(`Clicked on user with ID ${userId}`);
 
@@ -35,6 +32,11 @@ function App() {
     <div className="App">
       <header className="App-header">
         <h1 id="heading">User Details</h1>
+        <Router>
+          <Routes>
+            <Route path="/user/:id" element={<UserDetails />} />
+          </Routes>
+        </Router>
         <table class="usertable">
           <thead>
             <tr>
