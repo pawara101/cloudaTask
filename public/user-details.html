@@ -1,51 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>User Details</title>
-    <link rel="stylesheet" href="user-details.css">
-  </head>
-  <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    
-    <div id="root">
-      <div id="userDetailsContainer"></div>
-      <script>
 
-        const urlParams = new URLSearchParams(window.location.search);
-        const userId = urlParams.get('id');
-  
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>User Details</title>
+  <link rel="stylesheet" href="user-details.css">
+</head>
 
-        console.log('User ID:', userId);
-  
+<body>
+  <noscript>You need to enable JavaScript to run this app.</noscript>
 
-        fetch(`https://reqres.in/api/users/${userId}`)
-          .then((res) => res.json())
-          .then((data) => {
-            console.log('User Details:', data);
+  <div id="root">
+    <div id="userDetailsContainer"></div>
+    <script>
 
-            const userDetailsContainer = document.getElementById('userDetailsContainer');
+      const urlParams = new URLSearchParams(window.location.search);
+      const userId = urlParams.get('id');
 
-          
+
+      console.log('User ID:', userId);
+
+
+      fetch(`https://reqres.in/api/users/${userId}`)
+        .then((res) => res.json())
+        .then((data) => {
+          console.log('User Details:', data);
+
+          const userDetailsContainer = document.getElementById('userDetailsContainer');
+
+
           const userDetailsHTML = `
+          
           <img class="avtr" src="${data.data.avatar}" alt="User Avatar">
-            <h3><strong>ID:</strong> ${data.data.id}</h3>
-            <h3><strong>Email:</strong> ${data.data.email}</h3>
-            <h3><strong>First Name:</strong> ${data.data.first_name}</h3>
-            <h3><strong>Last Name:</strong> ${data.data.last_name}</h3>
+          <h3 class="fname"> ${data.data.first_name}  ${data.data.last_name}</h3>
+            <h3 class="txt"><strong>ID:</strong> ${data.data.id}</h3>
+            <h3 class="txt"><strong>e-mail:</strong> ${data.data.email}</h3>
+            <div class="bottom">created by Pawara</div>
           `;
 
           // Update the content of the userDetailsContainer
           userDetailsContainer.innerHTML = userDetailsHTML;
-          })
-          .catch((error) => {
-            console.error('Error fetching user details:', error);
-          });
-      </script>
+        })
+        .catch((error) => {
+          console.error('Error fetching user details:', error);
+        });
+    </script>
 
-      
-    </div>
 
-  </body>
+  </div>
+
+</body>
+
 </html>

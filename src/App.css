@@ -45,18 +45,26 @@
 }
 
 .usertable {
-  
   width: 100%;
   text-align: center;
+  border-collapse: collapse; /* This ensures no space between table cells */
 }
 
-.usertable tr:hover {
-  background-color: #6bb9dd; /* Change the background color on hover */
+.usertable, .usertable th, .usertable td {
+  border: none; /* Removes borders for table, th, and td elements */
 }
+
+.usertable tbody tr:hover {
+  background-color: #6bb9dd; /* Change the background color on hover for table body rows */
+}
+
+.usertable thead tr:hover {
+  background-color: initial; /* Reset hover effect for table header row */
+}
+
 
 #heading{
   background-color: rgb(146, 178, 221);
-  padding: 20px;
   font-weight: bold;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }

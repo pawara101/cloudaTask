@@ -1,9 +1,50 @@
-.avtr{
-
+.avtr {
+  max-width: 100%;
+  max-height: 100%;
   border-radius: 50%;
-  width: 200px; /* Set the width to make it smaller */
-  height: 200px; /* Set the height to make it smaller */
-
-
+  border: 2px solid #fff; /* Add a border with white color */
+  box-shadow: 0 2px 4px rgba(187, 113, 113, 0.1); /* Add a subtle shadow for depth */
+  transition: transform 0.3s ease-in-out; /* Add a smooth transition effect */
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
+.avtr:hover {
+  transform: scale(1.1); /* Scale up the avatar on hover */
+}
+
+/* Style for the full name */
+.fname {
+  
+  padding: 20px;
+  font-weight: bold;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-size: 40px;
+  margin: 10px 0; /* Add margin for separation from other elements */
+  text-align: center;
+}
+
+/* Style for the additional information */
+.txt {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  margin: 5px 0; /* Add margin for separation between items */
+  text-align: center;
+}
+
+/* Strong style for the labels in the additional information */
+.txt strong {
+  color: rgb(91, 153, 233);
+  margin-right: 5px; /* Add a small margin to separate the label from the text */
+}
+
+.bottom {
+  background-color: rgb(15, 68, 110);
+  height: 30px; /* Specify the unit (e.g., pixels) */
+  width: 100%;
+  color: #fff;
+  font-family:monospace;
+  text-align: center;
+  margin-top: 300px;
+  
+}
